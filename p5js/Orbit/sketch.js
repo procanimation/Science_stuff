@@ -1,6 +1,7 @@
 const a = 600;
 const b = 400; 
 let theta;
+
 function setup() {
    createCanvas(windowWidth, windowHeight);
    theta = 0;
