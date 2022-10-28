@@ -1,8 +1,16 @@
 const offset = 40;
-
+let ball_1;
+let ball_2;
 function setup() {
    createCanvas(windowWidth, windowHeight);
    theta = 0;
+   let size = 50;
+   let ax = -width/2 + size + offset/2;
+   let ay = height/2  - size - offset/2;
+   let bx = width/2 - size - offset/2;
+   let by = height/2  - size - offset/2;
+   ball_1 = new Ball(ax, ay, size);
+   ball_2 = new Ball(bx, by, size);
 }
 function draw(){
    background(51);
@@ -17,19 +25,15 @@ function draw(){
    rect(0, height/2, width, offset);
    noStroke();
    fill(221);
-   aradius = 50;
-   bradius = 50;
-   amass = 0.1 * aradius;
-   bmass = 0.1 * bradius;
-   ax = -width/2 + aradius + offset/2;
-   ay = height/2  - aradius - offset/2;
-   bx = width/2 - bradius - offset/2;
-   by = height/2  - bradius - offset/2;
-   ellipse(ax, ay, 2*aradius, 2*aradius);
-  
-   ellipse(bx, by, 2*bradius, 2*bradius);
-
+   ball_1.show();
+   ball_2.show();
+   pop();
 }
 
 
 
+
+function mousePressed() {
+   ball_1.fire();
+   ball_2.fire();
+}
